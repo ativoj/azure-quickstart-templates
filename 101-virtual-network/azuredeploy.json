@@ -4,7 +4,7 @@
     "parameters" : {
       "location": {
         "type": "string",
-        "allowedValues": ["East US", "West US", "West Europe", "East Asia", "South East Asia"],
+        "allowedValues": ["South Central US", "East US", "West US", "West Europe", "East Asia"],
         "metadata" : {
           "description" : "Deployment location"
         }
