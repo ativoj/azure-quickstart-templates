@@ -1,9 +1,9 @@
 { 
    "location": { 
-       "value": "West US" 
+       "value": "South Central US" 
      }, 
    "virtualNetworkName": { 
-       "value": "First_ARM_VNet" 
+       "value": "Matango_SC_ARM_VNet" 
    }, 
    "addressPrefix": { 
        "value": "10.0.0.0/16" 
