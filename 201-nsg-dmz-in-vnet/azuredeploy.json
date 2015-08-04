@@ -13,9 +13,9 @@
         "virtualNetworkName":
         {
             "type": "string",
-            "defaultValue": "First_ARM_VNet",
+            "defaultValue": "Matango_SC_ARM_VNet",
             "metadata": {
-                "description": "This is your Virtual Network"
+                "description": "This is the Matango South Central Virtual Network"
                  }
         },
         "addressPrefix":
