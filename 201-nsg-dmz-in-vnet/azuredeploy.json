@@ -3,9 +3,9 @@
     "contentVersion": "1.0.0.0",
     "parameters":
    
-        "FENSGName": {
+        "infraNSGName": {
             "type": "string",
-            "defaultValue": "FE_NSG",
+            "defaultValue": "infra_NSG",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to FrontEnd Subnet"
                  }
@@ -31,7 +31,7 @@
         {
         "apiVersion": "2015-05-01-preview",
         "type": "Microsoft.Network/networkSecurityGroups",
-        "name": "[parameters('FENSGName')]",
+        "name": "[parameters('infraNSGName')]",
         "location": "[parameters('location')]",
 
         "properties":
@@ -77,13 +77,13 @@
 
         "properties": {
             "securityRules": [{
-                "name": "Allow_FE",
+                "name": "Allow_infra",
                 "properties": {
-                    "description": "Allow FE Subnet",
+                    "description": "Allow infra Subnet",
                     "protocol": "Tcp",
                     "sourcePortRange": "*",
                     "destinationPortRange": "443",
-                    "sourceAddressPrefix": "10.0.0.0/24",
+                    "sourceAddressPrefix": "10.249.0.0/24",
                     "destinationAddressPrefix": "*",
                     "access": "Allow",
                     "priority": 100,
@@ -134,7 +134,7 @@
                     "protocol": "Tcp",
                     "sourcePortRange": "*",
                     "destinationPortRange": "1433",
-                    "sourceAddressPrefix": "10.0.1.0/24",
+                    "sourceAddressPrefix": "10.249.8.0/21",
                     "destinationAddressPrefix": "*",
                     "access": "Allow",
                     "priority": 100,
@@ -142,13 +142,13 @@
                 }
             },
             {
-                "name": "Block_FE",
+                "name": "Block_infra",
                 "properties": {
-                    "description": "Block FE Subnet",
+                    "description": "Block infra Subnet",
                     "protocol": "*",
                     "sourcePortRange": "*",
                     "destinationPortRange": "*",
-                    "sourceAddressPrefix": "10.0.0.0/24",
+                    "sourceAddressPrefix": "10.249.0.0/24",
                     "destinationAddressPrefix": "*",
                     "access": "Deny",
                     "priority": 101,
@@ -162,7 +162,7 @@
                     "protocol": "*",
                     "sourcePortRange": "*",
                     "destinationPortRange": "*",
-                    "sourceAddressPrefix": "10.0.1.0/24",
+                    "sourceAddressPrefix": "10.249.8.0/21",
                     "destinationAddressPrefix": "*",
                     "access": "Deny",
                     "priority": 102,
@@ -191,7 +191,7 @@
         "name": "[parameters('virtualNetworkName')]",
         "location": "[parameters('location')]",
         "dependsOn": [
-            "[concat('Microsoft.Network/networkSecurityGroups/', parameters('FENSGName'))]",
+            "[concat('Microsoft.Network/networkSecurityGroups/', parameters('infraNSGName'))]",
             "[concat('Microsoft.Network/networkSecurityGroups/', parameters('AppNSGName'))]",
             "[concat('Microsoft.Network/networkSecurityGroups/', parameters('DBNSGName'))]"
         ],
@@ -203,11 +203,11 @@
             },
             "subnets":
             [{
-                "name": "FESubnetName",
+                "name": "infraSubnetName",
                 "properties": {
-                    "addressPrefix": "[parameters('FESubnetPrefix')]",
+                    "addressPrefix": "[parameters('infraSubnetPrefix')]",
                     "networkSecurityGroup" : {
-                      "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('FENSGName'))]"
+                      "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('infraNSGName'))]"
                       }
                 }
              },
