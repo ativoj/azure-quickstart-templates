@@ -1,29 +1,41 @@
 { 
    "location": { 
-       "value": "West US" 
+       "value": "South Central US"
      }, 
    "virtualNetworkName": { 
-       "value": "First_ARM_VNet" 
+       "value": "PROD-USSC-vNET" 
    }, 
    "addressPrefix": { 
-       "value": "10.0.0.0/16" 
+       "value": "10.249.0.0/18" 
    }, 
-   "FESubnetPrefix": { 
-       "value": "10.0.0.0/24" 
+   "infraSubnetPrefix": { 
+       "value": "10.249.0.0/24" 
    }, 
-   "AppSubnetPrefix": { 
-       "value": "10.0.1.0/24" 
+   "appSubnetPrefix": { 
+       "value": "10.249.8.0/21" 
    }, 
-   "DBSubnetPrefix": { 
-       "value": "10.0.2.0/24" 
+   "dbSubnetPrefix": { 
+       "value": "10.249.24.0/21" 
    }, 
-   "FENSGName": { 
-       "value": "fensg" 
+   "webSubnetPrefix": { 
+       "value": "10.249.16.0/21" 
+   }, 
+      "mgmtSubnetPrefix": { 
+       "value": "10.249.16.0/21" 
+   }, 
+   "infraNSGName": { 
+       "value": "azr-infra-ussc" 
    },
-   "AppNSGName": { 
-       "value": "appnsg" 
+   "appNSGName": { 
+       "value": "azr-App-ussc" 
    },
- 	 "DBNSGName": {
- 	        "value": "dbnsg" 
+ 	 "dbNSGName": {
+ 	        "value": "azr-DB-ussc" 
+ 	 },
+ 	 "webNSGName": {
+ 	        "value": "azr-Web-ussc" 
+ 	 },
+ 	 "mgmtNSGName": {
+ 	        "value": "azr-mgmt-ussc" 
    } 
 } 
