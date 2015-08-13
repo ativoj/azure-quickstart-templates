@@ -3,23 +3,23 @@
     "contentVersion": "1.0.0.0",
     "parameters":
    
-        "infraNSGName": {
+        "WebNSGName": {
             "type": "string",
-            "defaultValue": "infra_NSG",
+            "defaultValue": "azr-prod-web-nsg",
             "metadata": {
-                "description": "This is name of the networkSecurityGroup that will be assigned to Infra Subnet"
+                "description": "This is name of the networkSecurityGroup that will be assigned to Web Subnet"
                  }
         },
         "AppNSGName": {
             "type": "string",
-            "defaultValue": "App_NSG",
+            "defaultValue": "azr-prod-app-nsg",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to Application Subnet"
                  }
         },
         "DBNSGName": {
             "type": "string",
-            "defaultValue": "DB_NSG",
+            "defaultValue": "azr-prod-db-nsg",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnet"
                  }
@@ -31,7 +31,7 @@
         {
         "apiVersion": "2015-05-01-preview",
         "type": "Microsoft.Network/networkSecurityGroups",
-        "name": "[parameters('infraNSGName')]",
+        "name": "[parameters('WebNSGName')]",
         "location": "[parameters('location')]",
 
         "properties":
@@ -77,13 +77,13 @@
 
         "properties": {
             "securityRules": [{
-                "name": "Allow_infra",
+                "name": "Allow_Web",
                 "properties": {
-                    "description": "Allow infra Subnet",
+                    "description": "Allow Web Subnet",
                     "protocol": "Tcp",
                     "sourcePortRange": "*",
                     "destinationPortRange": "443",
-                    "sourceAddressPrefix": "10.249.0.0/24",
+                    "sourceAddressPrefix": "10.249.16.0/21",
                     "destinationAddressPrefix": "*",
                     "access": "Allow",
                     "priority": 100,
@@ -142,13 +142,13 @@
                 }
             },
             {
-                "name": "Block_infra",
+                "name": "Block_Web",
                 "properties": {
-                    "description": "Block infra Subnet",
+                    "description": "Block Web Subnet",
                     "protocol": "*",
                     "sourcePortRange": "*",
                     "destinationPortRange": "*",
-                    "sourceAddressPrefix": "10.249.0.0/24",
+                    "sourceAddressPrefix": "10.249.16.0/21",
                     "destinationAddressPrefix": "*",
                     "access": "Deny",
                     "priority": 101,
@@ -191,7 +191,7 @@
         "name": "[parameters('virtualNetworkName')]",
         "location": "[parameters('location')]",
         "dependsOn": [
-            "[concat('Microsoft.Network/networkSecurityGroups/', parameters('infraNSGName'))]",
+            "[concat('Microsoft.Network/networkSecurityGroups/', parameters('WebNSGName'))]",
             "[concat('Microsoft.Network/networkSecurityGroups/', parameters('AppNSGName'))]",
             "[concat('Microsoft.Network/networkSecurityGroups/', parameters('DBNSGName'))]"
         ],
@@ -203,11 +203,11 @@
             },
             "subnets":
             [{
-                "name": "infraSubnetName",
+                "name": "WebSubnetName",
                 "properties": {
-                    "addressPrefix": "[parameters('infraSubnetPrefix')]",
+                    "addressPrefix": "[parameters('WebSubnetPrefix')]",
                     "networkSecurityGroup" : {
-                      "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('infraNSGName'))]"
+                      "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('WebNSGName'))]"
                       }
                 }
              },
