@@ -8,34 +8,34 @@
    "addressPrefix": { 
        "value": "10.249.0.0/18" 
    }, 
-   "infraSubnetPrefix": { 
+   "InfraSubnetPrefix": { 
        "value": "10.249.0.0/24" 
    }, 
-   "appSubnetPrefix": { 
+   "AppSubnetPrefix": { 
        "value": "10.249.8.0/21" 
    }, 
-   "dbSubnetPrefix": { 
+   "DBSubnetPrefix": { 
        "value": "10.249.24.0/21" 
    }, 
-   "webSubnetPrefix": { 
+   "WebSubnetPrefix": { 
        "value": "10.249.16.0/21" 
    }, 
-      "mgmtSubnetPrefix": { 
+      "MgmtSubnetPrefix": { 
        "value": "10.249.16.0/21" 
    }, 
-   "infraNSGName": { 
+   "InfraNSGName": { 
        "value": "azr-infra-ussc" 
    },
-   "appNSGName": { 
+   "AppNSGName": { 
        "value": "azr-App-ussc" 
    },
- 	 "dbNSGName": {
+ 	 "DBNSGName": {
  	        "value": "azr-DB-ussc" 
  	 },
- 	 "webNSGName": {
+ 	 "WebNSGName": {
  	        "value": "azr-Web-ussc" 
  	 },
- 	 "mgmtNSGName": {
+ 	 "MgmtNSGName": {
  	        "value": "azr-App-ussc" 
    } 
 } 
