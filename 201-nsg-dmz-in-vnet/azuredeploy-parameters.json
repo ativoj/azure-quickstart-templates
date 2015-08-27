@@ -31,11 +31,11 @@
    },
  	 "DBNSGName": {
  	        "value": "azr-DB-ussc" 
- 	 },
- 	 "WebNSGName": {
+   },
+   "WebNSGName": {
  	        "value": "azr-Web-ussc" 
- 	 },
- 	 "MgmtNSGName": {
- 	        "value": "azr-App-ussc" 
+   },
+   "MgmtNSGName": {
+ 	        "value": "azr-Mgmt-ussc" 
    } 
 } 
