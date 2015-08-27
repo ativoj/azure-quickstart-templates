@@ -1,6 +1,6 @@
 {
   "itemDisplayName": "Multi tier VNet with NSGs and DMZ",
-  "description": "This template creates a VNet with 5 Subnets, Web subnet, App subnet, Database subnet, Management subnet and Infrastructure subnet. It also creates 3 Network Security groups one per each subnet. It cretaes DMZ rules for the App Subnet to expose endpoints to the Internet. It secures the App Subnet, the DB subnet, the Management subnet and the Infrastructure subnet with appropriate rules. It blocks Outbound Internet access to VMs in App and DB subnet, Management subnet and Infrastructure subnet. It opens up DB Subnet only on the DB port to App Subnet.",
+  "description": "This template creates a VNet with 5 Subnets, Web subnet, App subnet, Database subnet, Management subnet and Infrastructure subnet. It also creates 5 Network Security groups one per each subnet. It cretaes DMZ rules for the App Subnet to expose endpoints to the Internet. It secures the App Subnet, the DB subnet, the Management subnet and the Infrastructure subnet with appropriate rules. It blocks Outbound Internet access to VMs in App and DB subnet, Management subnet and Infrastructure subnet. It opens up DB Subnet only on the DB port to App Subnet.",
   "summary": "Install Virtual Network with DMZ Subnet",
   "githubUsername": "ativoj",
   "dateUpdated": "2015-05-05"
