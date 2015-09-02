@@ -22,9 +22,9 @@
     },
     "location": {
       "type": "string",
-      "allowedValues": ["East US", "West US", "West Europe", "East Asia", "Southeast Asia"],
+      "allowedValues": ["East US", "South Central US"],
       "metadata": {
-          "description": "Location of storage account"
+          "description": "Location of COP storage account"
       }
     }
   },
